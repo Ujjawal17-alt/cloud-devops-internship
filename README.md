@@ -1,91 +1,110 @@
 # DevOps Internship Tasks by Ujjawal Rawat
 
-6 internship tasks completed — Terraform, Docker, Ansible, Jenkins, EC2 deployments.
+## Overview
+I have successfully completed 6 DevOps internship tasks demonstrating skills in **Terraform, Docker, Ansible, Jenkins, and AWS EC2 deployments**.  
+This README contains detailed explanations of each task, commands used, and project workflow. Logos are used for better visual understanding.
 
 ---
 
-## Project Summary
-Full documentation and screenshots for all 6 internship tasks with step-by-step commands, configs, and verification.
+## 🛠 Tools & Technologies Used
+| Tool | Purpose |
+|------|---------|
+| ![Ansible](https://img.shields.io/badge/Ansible-EE0000?style=for-the-badge&logo=ansible&logoColor=white) | Configuration Management |
+| ![Terraform](https://img.shields.io/badge/Terraform-623CE4?style=for-the-badge&logo=terraform&logoColor=white) | Infrastructure as Code (IaC) |
+| ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white) | Containerization |
+| ![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white) | CI/CD Automation |
+| ![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white) | Cloud Hosting & EC2 |
 
 ---
 
-## Quick Links
-- [Doc 1 — Ansible](./docs/doc1.md)  
-- [Doc 2 — Terraform](./docs/doc2.md)  
-- [Doc 3 — Docker Compose](./docs/doc3.md)  
-- [Doc 4 — Webhook Integration](./docs/doc4.md)  
-- [Doc 5 — EC2 Deployment](./docs/doc5.md)  
-- [Doc 6 — Jenkins Pipeline](./docs/doc6.md)  
+## 📌 Tasks Overview
 
----
-
-## Tasks Overview
-
-### Task 1 — Ansible
-**Description:** Install Docker, pull Docker image, run container with restart policy.  
+### 1️⃣ Ansible — Configuration Management
+**Objective:** Automate Docker installation, pull images, and run containers.  
 **Playbook:** `docker-playbook.yml`  
+**Steps:**
+1. Configure Ansible inventory file with target hosts.
+2. Write a playbook to install Docker on remote server.
+3. Pull a Docker image (like Nginx) and run container with restart policy.
+4. Verify Docker container status using `docker ps`.
 
-**Screenshots:**  
-![SSH](./screenshots/task1_ssh.png)  
-![Inventory](./screenshots/task1_inventory.png)  
-![Playbook](./screenshots/task1_playbook.png)  
-![Docker ps](./screenshots/task1_dockerps.png)  
-![Browser](./screenshots/task1_browser.png)  
-
----
-
-### Task 2 — Terraform
-**Description:** Launch EC2 instance, open ports 80 & 22, install Docker via `user_data`.  
-
-**Screenshots:**  
-![Terraform Init](./screenshots/task2_init.png)  
-![Terraform Apply](./screenshots/task2_apply.png)  
-![EC2](./screenshots/task2_ec2.png)  
+**Tools / Icons:**  
+![Ansible](https://img.shields.io/badge/Ansible-EE0000?style=for-the-badge&logo=ansible&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
 ---
 
-### Task 3 — Docker Compose
-**Description:** Run Nginx static site with optional Watchtower container.  
+### 2️⃣ Terraform — EC2 Infrastructure
+**Objective:** Provision AWS EC2 instance with open ports and Docker installed automatically.  
+**Steps:**
+1. Write Terraform scripts (`main.tf`) to launch EC2 instance.
+2. Open ports **22 (SSH)** and **80 (HTTP)** using security groups.
+3. Use `user_data` to install Docker on instance automatically.
+4. Apply configuration with `terraform init` and `terraform apply`.
+5. Verify EC2 instance status and Docker installation.
 
-**Screenshots:**  
-![Compose File](./screenshots/task3_compose.png)  
-![Nginx](./screenshots/task3_nginx.png)  
-
----
-
-### Task 4 — GitHub → Jenkins
-**Description:** Configure webhook to trigger Jenkins job on push to main.  
-
-**Screenshots:**  
-![Webhook](./screenshots/task4_webhook.png)  
-![Jenkins](./screenshots/task4_jenkins.png)  
+**Tools / Icons:**  
+![Terraform](https://img.shields.io/badge/Terraform-623CE4?style=for-the-badge&logo=terraform&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
 ---
 
-### Task 5 — Deploy to EC2
-**Description:** SSH into EC2, pull Docker image, run container, expose on port 80/8080.  
+### 3️⃣ Docker Compose — Multi-Environment Setup
+**Objective:** Run a static Nginx site and optional Watchtower container.  
+**Steps:**
+1. Create `docker-compose.yml` for Nginx service.
+2. Optionally add Watchtower for automatic container updates.
+3. Start containers with `docker-compose up -d`.
+4. Verify Nginx site running via browser.
 
-**Screenshots:**  
-![Pull](./screenshots/task5_pull.png)  
-![Run](./screenshots/task5_run.png)  
-![Web](./screenshots/task5_web.png)  
-
----
-
-### Task 6 — Jenkins Pipeline
-**Description:** Declarative Jenkinsfile to build Docker image and push to DockerHub.  
-
-**Screenshots:**  
-![Jenkinsfile](./screenshots/task6_jenkinsfile.png)  
-![Build](./screenshots/task6_build.png)  
-![DockerHub](./screenshots/task6_dockerhub.png)  
+**Tools / Icons:**  
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
 ---
 
-## Screenshots Gallery
-All screenshots are grouped by task. Place all files in the `/screenshots/` folder.
+### 4️⃣ GitHub → Jenkins — Webhook Integration
+**Objective:** Automate Jenkins job triggering on GitHub push.  
+**Steps:**
+1. Create a Jenkins job to build Docker image.
+2. Configure GitHub webhook pointing to Jenkins job URL.
+3. Push changes to main branch on GitHub.
+4. Verify Jenkins job triggers automatically.
+
+**Tools / Icons:**  
+![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white) ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 
 ---
 
-Built with ❤️ by Ujjawal Rawat  
+### 5️⃣ Deploy to EC2
+**Objective:** SSH into EC2, pull Docker image, and run container accessible on port 80/8080.  
+**Steps:**
+1. SSH into EC2 instance.
+2. Pull Docker image from DockerHub.
+3. Run container with port mapping `-p 80:80`.
+4. Verify the application in browser.
+
+**Tools / Icons:**  
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
+
+---
+
+### 6️⃣ Jenkins Pipeline
+**Objective:** Create declarative Jenkins pipeline to build and push Docker image.  
+**Steps:**
+1. Write `Jenkinsfile` with stages: Checkout → Build → Push.
+2. Connect Jenkins to DockerHub account.
+3. Trigger pipeline manually or via webhook.
+4. Verify image appears on DockerHub.
+
+**Tools / Icons:**  
+![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+
+---
+
+## ✅ Summary
+- 6 internship tasks completed with practical DevOps tools.  
+- Skills demonstrated: **IaC, CI/CD, Containerization, Cloud Deployment, Configuration Management**.  
+- This README is structured for **clarity, explainability, and professional presentation**.
+
+---
+
+Built with ❤️ by **Ujjawal Rawat**  
 [GitHub](https://github.com/Ujjawal17-alt)
